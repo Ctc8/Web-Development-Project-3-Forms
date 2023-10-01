@@ -1,3 +1,7 @@
+body {
+  background-color: azure;
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -6,7 +10,7 @@
 .flashcard {
   width: 400px;
   height: 150px;
-  background-color: #cdcdcd;
+  background-color: #eaeaea;
   margin-bottom: 30px;
   display: flex;
   justify-content: center;
@@ -18,28 +22,6 @@
   transition: transform 0.6s;
   transform-style: preserve-3d;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
-
-.flashcard-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
-
-.flashcard:hover .flashcard-inner {
-  transform: rotateY(180deg);
-}
-
-.card {
-  width: 100%;
-  height: 100%;
-  transition: transform 0.5s;
-  transform-style: preserve-3d;
-  cursor: pointer;
 }
 
 .flipped {
@@ -58,4 +40,23 @@ h2 {
   display: flex;
   justify-content: center;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.prev-button {
+  padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.next-button {
+  padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  margin-left: 10px;
 }

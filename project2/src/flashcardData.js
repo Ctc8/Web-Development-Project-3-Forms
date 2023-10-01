@@ -49,6 +49,31 @@ const FLASHCARD_DATA = [
         question: "LaMelo Ball",
         answer: "Charlotte Hornets"
     },
+    {
+        id: 11,
+        question: "Devin Booker",
+        answer: "Phoenix Suns"
+    },
+    {
+        id: 12,
+        question: "Trae Young",
+        answer: "Atlanta Hawks"
+    },
+    {
+        id: 13,
+        question: "Ja Morant",
+        answer: "Memphis Grizzlies"
+    },
+    {
+        id: 14,
+        question: "Luka Doncic",
+        answer: "Dallas Mavericks"
+    },
+    {
+        id: 15,
+        question: "DeMar DeRozan",
+        answer: "Chicago Bulls"
+    },
 ]
 
 export default FLASHCARD_DATA
