@@ -44,7 +44,7 @@ const Flashcard = () => {
 	}
 
 	// Get user's guess
-	const handleInputChange = (e) => {
+	const handleInputChange = e => {
 		setInputValue(e.target.value)
 	}
 
@@ -58,7 +58,7 @@ const Flashcard = () => {
 			<div className="streak-heading">
 				<h3> Current streak: {streak} </h3>
 			</div>
-		
+
 			<div className="container">
 				<div className={`flashcard ${side ? "flipped" : ""}`}>
 					<div className={` ${side ? "flipped" : ""}`} onClick={toggleAnswer}>
@@ -80,7 +80,11 @@ const Flashcard = () => {
 				<form onSubmit={handleSubmit}>
 					<label className="label">
 						Enter your guess:
-						<input type="text" value={inputValue} onChange={handleInputChange}/>
+						<input
+							type="text"
+							value={inputValue}
+							onChange={handleInputChange}
+						/>
 					</label>
 				</form>
 			</div>
