@@ -4,6 +4,8 @@ import FLASHCARD_DATA from "../src/flashcardData"
 const Flashcard = () => {
 	const [side, setSide] = useState(false)
 	const [currentCard, setCurrentCard] = useState(0)
+	const [streak, setStreak] = useState(0)
+	// const [guess, setGuess] = useState("")
 
 	// Check which side the flashcard is on
 	const toggleAnswer = () => {
@@ -28,6 +30,18 @@ const Flashcard = () => {
 
 	const { question, answer } = FLASHCARD_DATA[currentCard]
 
+	// Track number of correct guesses
+	const handleSubmit = (e) => {
+		const initialCount = 0
+		alert("asd")
+		if (true) {
+			setStreak(streak + 1)
+		}
+		// if (e != side){
+		// 	setStreak(initialCount)
+		// }
+	}
+
 	return (
 		<>
 			<div className="container">
@@ -42,10 +56,22 @@ const Flashcard = () => {
 				<button className="prev-button" onClick={prevCard}>
 					Back
 				</button>
-
 				<button className="next-button" onClick={nextCard}>
-          Next
+          			Next
 				</button>
+			</div>
+
+			<div className="form-container">
+				<form onSubmit={handleSubmit}>
+					<label>
+						Enter your guess:
+						<input type="text"></input>
+					</label>
+				</form>
+			</div>
+
+			<div>
+				<p> Current streak: {streak} </p>
 			</div>
 		</>
 	)
