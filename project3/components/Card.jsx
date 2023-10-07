@@ -5,7 +5,7 @@ const Flashcard = () => {
 	const [side, setSide] = useState(false)
 	const [currentCard, setCurrentCard] = useState(0)
 	const [streak, setStreak] = useState(0)
-	// const [guess, setGuess] = useState("")
+	const [inputValue, setInputValue] = useState("")
 
 	// Check which side the flashcard is on
 	const toggleAnswer = () => {
@@ -14,36 +14,51 @@ const Flashcard = () => {
 
 	// Next card
 	const nextCard = () => {
-    if (currentCard < FLASHCARD_DATA.length - 1) {
-      setSide(false)
-      setCurrentCard(nextCard => nextCard + 1)
-    }
+		if (currentCard < FLASHCARD_DATA.length - 1) {
+			setSide(false)
+			setCurrentCard(nextCard => nextCard + 1)
+		}
 	}
 
 	// Previous card
 	const prevCard = () => {
-    if (currentCard > 0) {
-      setSide(false)
-      setCurrentCard(prevCard => prevCard - 1)
-    }
+		if (currentCard > 0) {
+			setSide(false)
+			setCurrentCard(prevCard => prevCard - 1)
+		}
 	}
 
 	const { question, answer } = FLASHCARD_DATA[currentCard]
 
 	// Track number of correct guesses
-	const handleSubmit = (e) => {
-		const initialCount = 0
-		alert("asd")
-		if (true) {
+	const handleSubmit = e => {
+		const initialValue = 0
+		e.preventDefault()
+		if (inputValue === answer) {
 			setStreak(streak + 1)
+			alert("You got it correct!")
+		} else {
+			alert("Try again! Streak reset.")
+			resetStreak()
 		}
-		// if (e != side){
-		// 	setStreak(initialCount)
-		// }
+	}
+
+	// Get user's guess
+	const handleInputChange = (e) => {
+		setInputValue(e.target.value)
+	}
+
+	// Reset state back to 0
+	const resetStreak = () => {
+		setStreak(0)
 	}
 
 	return (
 		<>
+			<div className="streak-heading">
+				<h3> Current streak: {streak} </h3>
+			</div>
+		
 			<div className="container">
 				<div className={`flashcard ${side ? "flipped" : ""}`}>
 					<div className={` ${side ? "flipped" : ""}`} onClick={toggleAnswer}>
@@ -57,21 +72,17 @@ const Flashcard = () => {
 					Back
 				</button>
 				<button className="next-button" onClick={nextCard}>
-          			Next
+					Next
 				</button>
 			</div>
 
 			<div className="form-container">
 				<form onSubmit={handleSubmit}>
-					<label>
+					<label className="label">
 						Enter your guess:
-						<input type="text"></input>
+						<input type="text" value={inputValue} onChange={handleInputChange}/>
 					</label>
 				</form>
-			</div>
-
-			<div>
-				<p> Current streak: {streak} </p>
 			</div>
 		</>
 	)
